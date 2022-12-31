@@ -21,35 +21,35 @@ def axis1_right():
 
 def axis2_plus():
     print("axis 2 plus")
-    servo.moveServo_forward(4)
+    servo.moveServo_forward(6)
 
 def axis2_min():
     print("axis 2 min")
-    servo.moveServo_backward(4)
+    servo.moveServo_backward(6)
 
 def axis3_plus():
     print("axis 3 plus")
-    servo.moveServo_forward(5)
+    servo.moveServo_forward(7)
 
 def axis3_min():
     print("axis 3 min")
-    servo.moveServo_backward(5)
+    servo.moveServo_backward(7)
 
 def axis4_plus():
     print("axis 4 plus")
-    servo.moveServo_forward(6)
+    servo.moveServo_forward(8)
 
 def axis4_min():
     print("axis 4 min")
-    servo.moveServo_backward(6)
+    servo.moveServo_backward(8)
 
 def axis5_plus():
     print("axis 5 plus")
-    servo.moveServo_forward(7)
+    servo.moveServo_forward(9)
 
 def axis5_min():
     print("axis 5 min")
-    servo.moveServo_backward(7)
+    servo.moveServo_backward(9)
 
 def connect():
     wlan = network.WLAN(network.STA_IF)
@@ -117,6 +117,10 @@ def webpage():
             <form action="./Z-">
             <input type="submit" value="Z- / J3-" style="height:120px; width:120px" />
             </form>
+
+            <form action="./Home">
+            <input type="submit" value="Home" style="height:120px; width:120px" />
+            </form>
             </body>
             </html>
             """
@@ -150,6 +154,11 @@ def server(connection):
             axis2_min()
         elif request =='/Z-?':
             axis3_min()
+        elif request =='/Home?':
+            servo.servo_Home(6, 5000)
+            servo.servo_Home(7, 1000)
+            servo.servo_Home(8, 1000)
+            servo.servo_Home(9, 5000)
         html = webpage()
         client.send(html)
         client.close()
