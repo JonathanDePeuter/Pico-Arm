@@ -21,7 +21,7 @@ def moveServo_backward(PWMpin):
     pwm = PWM(Pin(PWMpin))
     pwm.freq(50)
 
-    for position in range(6000,5000,-50):
+    for position in range(9000,1000,-50):
         pwm.duty_u16(position)
         sleep(0.01)
 
